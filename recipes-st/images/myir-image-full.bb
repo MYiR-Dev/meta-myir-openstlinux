@@ -49,8 +49,19 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland-plugins", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland-qmlplugins", "", d)} \
+   udev-extraconf \
+   valgrind \
+   iperf3 \
+   serialcheck \
+   ppp \
+   gawk \
+   vim \
+   libmodbus \
+   python3-pip \
     hmi \
     myir-tool \
+    event-gtk-player \
+    eeprom-pnsn \
     "
 
 # NOTE:
