@@ -15,8 +15,11 @@ inherit meson pkgconfig
 S = "${WORKDIR}/git/touch-event-gtk-player"
 
 do_install () {
-	install -d ${D}${prefix}/local/demo/bin
-	install -m 0755 ${B}/touch-event-gtk-player ${D}${prefix}/local/demo/bin/
+	#install -d ${D}${prefix}/local/demo/bin
+	install -d ${D}${bindir}
+	#install -m 0755 ${B}/touch-event-gtk-player ${D}${prefix}/local/demo/bin/
+	install -m 0755 ${B}/touch-event-gtk-player ${D}${bindir}
 }
-FILES:${PN} += "${prefix}/local/demo/bin"
+#FILES:${PN} += "${prefix}/local/demo/bin"
+FILES:${PN} += "${bindir}"
 
