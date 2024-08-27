@@ -62,6 +62,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     myir-tool \
     event-gtk-player \
     eeprom-pnsn \
+    kexec-tools \
+    portaudio-v19 \
     "
 
 # NOTE:
