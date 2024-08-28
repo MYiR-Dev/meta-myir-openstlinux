@@ -58,8 +58,14 @@ ADDONSLAYERS += " \
 # specific to framework
 FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-openstlinux/conf/layer.conf') else ''}"
 
+# switch layer
+SWITCHLAYER ?= "\
+    ${@'${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-acm' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-acm/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-swch' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-swch/conf/layer.conf') else ''} \
+"
 # add BSP layer
 BBLAYERS += " \
+    ${SWITCHLAYER} \
     ${BASELAYERS} \
     ${BSPLAYER} \
     ${ADDONSLAYERS} \
