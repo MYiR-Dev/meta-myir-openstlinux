@@ -40,4 +40,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     eeprom-pnsn \
     kexec-tools \
     portaudio-v19 \ 
+    ppp-quectel \
+    quectel-cm \
     "
