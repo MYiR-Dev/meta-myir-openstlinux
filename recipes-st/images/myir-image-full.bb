@@ -66,6 +66,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     portaudio-v19 \
     ppp-quectel \
     quectel-cm \
+    qtvirtualkeyboard \
+    ffmpeg  \
     "
 
 # NOTE:
