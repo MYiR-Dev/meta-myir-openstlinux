@@ -33,7 +33,7 @@ BBLAYERS_NON_REMOVABLE ?= " \
 
 BSPLAYER ?= " \
     ${@'${OEROOT}/layers/meta-myir/meta-st-cannes2' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-cannes2/conf/layer.conf') else ''} \
-    ${@'${OEROOT}/layers/meta-myir/meta-st-stm32mp' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-stm32mp/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp/conf/layer.conf') else ''} \
     "
 
 ADDONSLAYERS = ""
@@ -56,12 +56,12 @@ ADDONSLAYERS += " \
     "
 
 # specific to framework
-FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-openstlinux/conf/layer.conf') else ''}"
+FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-openstlinux/conf/layer.conf') else ''}"
 
 # switch layer
 SWITCHLAYER ?= "\
-    ${@'${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-acm' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-acm/conf/layer.conf') else ''} \
-    ${@'${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-swch' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-stm32mp-tsn-swch/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch/conf/layer.conf') else ''} \
 "
 # add BSP layer
 BBLAYERS += " \
