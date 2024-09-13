@@ -43,7 +43,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'tpm2', 'packagegroup-security-tpm2', '', d)} \
     \
-   udev-extraconf \
    valgrind \
    iperf3 \
    serialcheck \
