@@ -6,4 +6,5 @@ Available images for OpenSTLinux layers are:
   - Other OpenSTLinux images:
       - Supported images:
           st-image-core         -   OpenSTLinux core image
+	  myir-image-full       -   OpenSTLinux weston Qt image with basic wayland support(if enable in distro)
 
