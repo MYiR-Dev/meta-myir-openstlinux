@@ -15,7 +15,6 @@ PACKAGES = "\
             packagegroup-framework-tools-base-audio     \
             packagegroup-framework-tools-base-ui        \
             packagegroup-framework-tools-base-python3   \
-	    packagegroup-framework-tools-base-myir    \
             "
 
 RDEPENDS:packagegroup-framework-tools-base-myir = "\
