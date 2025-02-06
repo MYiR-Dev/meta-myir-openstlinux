@@ -6,15 +6,15 @@ DISTROOVERRIDES =. "openstlinuxcommon:"
 #--------------------------
 # Mirror settings
 #
-YOCTOPROJECT_MIRROR_URL = "http://downloads.yoctoproject.org/mirror/sources/"
+#YOCTOPROJECT_MIRROR_URL = "http://downloads.yoctoproject.org/mirror/sources/"
 
-MIRRORS =+ "\
-ftp://.*/.*    ${YOCTOPROJECT_MIRROR_URL} \n \
-http://.*/.*   ${YOCTOPROJECT_MIRROR_URL} \n \
-https://.*/.*  ${YOCTOPROJECT_MIRROR_URL} \n"
+#MIRRORS =+ "\
+#ftp://.*/.*    ${YOCTOPROJECT_MIRROR_URL} \n \
+#http://.*/.*   ${YOCTOPROJECT_MIRROR_URL} \n \
+#https://.*/.*  ${YOCTOPROJECT_MIRROR_URL} \n"
 
-INHERIT += "own-mirrors"
-SOURCE_MIRROR_URL ??= "${YOCTOPROJECT_MIRROR_URL}"
+#INHERIT += "own-mirrors"
+#SOURCE_MIRROR_URL ??= "${YOCTOPROJECT_MIRROR_URL}"
 
 #--------------------------
 # The CONNECTIVITY_CHECK_URI's are used to test whether we can succesfully
