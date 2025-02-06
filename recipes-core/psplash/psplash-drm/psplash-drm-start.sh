@@ -73,4 +73,5 @@ if [ -d /proc/device-tree/ ]; then
 	fi
 fi
 echo "/usr/bin/psplash-drm -w $OPT --background 03234b --filename=$DEFAULT_SPLASH"
-/usr/bin/psplash-drm -w $OPT --background 03234b --filename=$DEFAULT_SPLASH
+#/usr/bin/psplash-drm -w $OPT --background 03234b --filename=$DEFAULT_SPLASH
+/usr/bin/psplash-drm -w $OPT --background ffffff --filename=$DEFAULT_SPLASH
