@@ -58,7 +58,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     vim \
     libmodbus \
     python3-pip \
-    hmi \
+    autorun \
     myir-tool \
     event-gtk-player \
     eeprom-pnsn \
@@ -68,6 +68,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     quectel-cm \
     qtvirtualkeyboard \
     ffmpeg  \
+    gdb \
+    ncurses \
     "
 
 # NOTE:
