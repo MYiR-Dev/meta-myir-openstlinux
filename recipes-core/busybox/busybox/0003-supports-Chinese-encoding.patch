@@ -1,3 +1,11 @@
+From 4e2fa65f3323b3a65c7a34036b2ad8eae68d149d Mon Sep 17 00:00:00 2001
+From: Your Name <your.email@example.com>
+Date: Tue, 12 Apr 2023 13:00:00 +0800
+Subject: [PATCH] supports Chinese encoding in BusyBox
+
+Upstream-Status: Inappropriate [embedded]
+---
+
 diff -ur origin/libbb/printable_string.c busybox-1.36.1/libbb/printable_string.c
 --- origin/libbb/printable_string.c	2021-01-01 18:52:27.000000000 +0800
 +++ busybox-1.36.1/libbb/printable_string.c	2024-08-01 15:09:01.477827808 +0800
