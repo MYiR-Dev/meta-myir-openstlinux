@@ -13,6 +13,7 @@ SRC_URI = " \
         file://psplash-drm-quit \
         file://pictures \
         file://pictures-animated \
+        file://pictures-animated1080p \
     "
 
 SRC_URI += " file://psplash-drm-start.service file://psplash-drm-start.sh file://71-dev-dri-card0.rules"
@@ -50,7 +51,9 @@ do_install() {
 
         # extra animation
         install -d ${D}${prefix}/local/splashscreen/animated
+        install -d ${D}${prefix}/local/splashscreen/animated1080p
         install -m 644 ${WORKDIR}/pictures-animated/* ${D}${prefix}/local/splashscreen/animated/
+        install -m 644 ${WORKDIR}/pictures-animated1080p/* ${D}${prefix}/local/splashscreen/animated1080p/
     fi
 }
 PACKAGES += "${PN}-extra"
