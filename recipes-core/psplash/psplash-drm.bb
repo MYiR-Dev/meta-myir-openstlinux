@@ -15,7 +15,7 @@ SRC_URI = " \
         file://pictures-animated \
     "
 
-SRC_URI += " file://psplash-drm-start.service file://psplash-drm-start.sh file://71-dev-dri-card0.rules"
+SRC_URI += " file://psplash-drm-start.service file://psplash-drm-wait.service file://psplash-drm-start.sh file://71-dev-dri-card0.rules"
 
 PROVIDES = "virtual/psplash"
 RPROVIDES:${PN} = "virtual-psplash virtual-psplash-support"
@@ -23,7 +23,7 @@ RPROVIDES:${PN} = "virtual-psplash virtual-psplash-support"
 inherit systemd
 
 SYSTEMD_PACKAGES = "${@bb.utils.contains('DISTRO_FEATURES','systemd','${PN}','',d)}"
-SYSTEMD_SERVICE:${PN} = "${@bb.utils.contains('DISTRO_FEATURES','systemd','psplash-drm-start.service ','',d)}"
+SYSTEMD_SERVICE:${PN} = "${@bb.utils.contains('DISTRO_FEATURES','systemd','psplash-drm-start.service psplash-drm-wait.service','',d)}"
 
 S = "${WORKDIR}"
 

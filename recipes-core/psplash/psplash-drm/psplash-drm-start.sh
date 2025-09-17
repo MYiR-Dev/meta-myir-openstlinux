@@ -4,6 +4,7 @@
 SPLASH_BG_LANDSCAPE_INDUS_480_272="/usr/share/splashscreen/ST30739_splash-480x272.png"
 SPLASH_BG_LANDSCAPE_INDUS_480_800="/usr/share/splashscreen/ST30739_splash-800x480.png"
 SPLASH_BG_LANDSCAPE_INDUS_800_480="/usr/share/splashscreen/ST30739_splash-800x480.png"
+SPLASH_BG_LANDSCAPE_INDUS_800_480_MYIR="/usr/share/splashscreen/logo-myir.png"
 SPLASH_BG_LANDSCAPE_INDUS_1280_720="/usr/share/splashscreen/ST30739_splash-1280x720.png"
 
 SPLASH_BG_LANDSCAPE_TSN_1024_600="/usr/share/splashscreen/ST30739_splash-1024x600.png"
@@ -17,7 +18,7 @@ if [ -d /proc/device-tree/ ]; then
 	# stm32mp13: 480x272 screen (landscape)
 	if $(cat /proc/device-tree/compatible | grep -q "stm32mp13")
 	then
-		DEFAULT_SPLASH=$SPLASH_BG_LANDSCAPE_INDUS_480_272
+		DEFAULT_SPLASH=$SPLASH_BG_LANDSCAPE_INDUS_800_480_MYIR
 		echo "[DEBUG]: compatible mp13"
 	fi
 	# stm32mp15: 480x800 or 1280x720 (landscape) + HDMI 1280x720
