@@ -38,7 +38,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'tpm2', 'packagegroup-security-tpm2', '', d)} \
     \
-    packagegroup-st-demo \
     udev-extraconf \
     valgrind \
     iperf3 \
@@ -48,6 +47,10 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     vim \
     libmodbus \
     python3-pip \
+    tzdata \
+    gdb \
+    myir-tool \
+    autorun \
     "
 
 # NOTE:
