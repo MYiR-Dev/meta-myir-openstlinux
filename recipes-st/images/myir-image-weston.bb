@@ -9,6 +9,7 @@ inherit core-image features_check
 REQUIRED_DISTRO_FEATURES = "wayland"
 
 IMAGE_LINGUAS = "en-us"
+IMAGE_FSTYPES:remove = "multiubi"
 
 IMAGE_FEATURES += "\
     splash              \
