@@ -2,8 +2,12 @@ Available images for OpenSTLinux layers are:
 
   - Official OpenSTLinux images:
       st-image-weston       -   OpenSTLinux weston image with basic Wayland support (if enable in distro)
+      myir-image-full       -   OpenSTLinux weston image with basic Wayland support and QT6 support
+      myir-image-burn       -   Flash the full image to eMMC using an SD card
 
   - Other OpenSTLinux images:
       - Supported images:
           st-image-core         -   OpenSTLinux core image
+	  myir-image-core       -   OpenSTLinux nand image with basic LVGL support
+          myir-image-burn-nand  -   Flash the core image to NAND using an SD card
 
