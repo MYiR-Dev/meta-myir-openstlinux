@@ -7,7 +7,8 @@ inherit core-image
 
 IMAGE_LINGUAS = "en-us"
 
-BOOTDEVICE_LABELS = "nand-2-128-256"
+BOOTDEVICE_LABELS = "nand-2-128-256 sdcard"
+ST_OPTEE_EXPORT_TA_REF_BOARD:stm32mp1common = "myb-stm32mp135x-256m.dts"
 
 IMAGE_FEATURES += "\
     splash \
@@ -37,6 +38,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     libmodbus \
     tzdata \
     gdb \
+    mtd-utils-ubifs \
     myir-tool \
     lvgl-demo \
     "
