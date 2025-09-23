@@ -40,5 +40,6 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     gdb \
     mtd-utils-ubifs \
     myir-tool \
+    bc \
     lvgl-demo \
     "
