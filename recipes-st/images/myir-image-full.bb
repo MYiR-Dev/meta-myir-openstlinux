@@ -40,6 +40,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'packagegroup-optee-core', '', d)} \
     ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'packagegroup-optee-test', '', d)} \
+    ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'optee-examples', '', d)} \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'tpm2', 'packagegroup-security-tpm2', '', d)} \
     \
@@ -70,6 +71,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ffmpeg  \
     gdb \
     ncurses \
+    keyutils \
+    lvm2 \
     "
 
 # NOTE:
