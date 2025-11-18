@@ -25,6 +25,7 @@ BASELAYERS ?= " \
     ${OEROOT}/layers/meta-openembedded/meta-multimedia \
     ${OEROOT}/layers/meta-openembedded/meta-networking \
     ${OEROOT}/layers/meta-openembedded/meta-webserver \
+    ${OEROOT}/layers/meta-rauc \
 "
 
 BBLAYERS_NON_REMOVABLE ?= " \
@@ -44,6 +45,9 @@ FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-openstlinux' if os.
 
 # Qt5
 ADDONSLAYERS += "${@'${OEROOT}/layers/meta-qt5' if os.path.isfile('${OEROOT}/layers/meta-qt5/conf/layer.conf') else ''}"
+
+# ota
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-ota' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-ota/conf/layer.conf') else ''}"
 
 # switch layer
 SWITCHLAYER ?= "\
