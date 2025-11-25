@@ -47,7 +47,7 @@ FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-openstlinux' if os.
 ADDONSLAYERS += "${@'${OEROOT}/layers/meta-qt5' if os.path.isfile('${OEROOT}/layers/meta-qt5/conf/layer.conf') else ''}"
 
 # ota
-ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-ota' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-ota/conf/layer.conf') else ''}"
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-ota' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-ota/conf/layer.conf') else ''}"
 
 # switch layer
 SWITCHLAYER ?= "\
