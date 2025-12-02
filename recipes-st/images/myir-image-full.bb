@@ -50,7 +50,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland-plugins", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "wayland", "qtwayland-qmlplugins", "", d)} \
-    udev-extraconf \
+    ${@bb.utils.contains('OTA_SUPPORT', '1', '', 'udev-extraconf', d)} \
     valgrind \
     iperf3 \
     serialcheck \
