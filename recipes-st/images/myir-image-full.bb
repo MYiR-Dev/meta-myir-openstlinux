@@ -78,3 +78,13 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 # NOTE:
 #   packagegroup-st-demo are installed on rootfs to populate the package
 #   database.
+ROOTFS_POSTPROCESS_COMMAND:append = "install_lib; "
+install_lib() {
+
+  if [ -f ${IMAGE_ROOTFS}/usr/lib/libmyir_code.so.1 ]; then
+	cd ${IMAGE_ROOTFS}/usr/lib/
+        ln -sf libmyir_code.so.1 libmyir_code.so
+  fi
+
+}
+
