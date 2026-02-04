@@ -27,6 +27,7 @@ BASELAYERS ?= " \
     ${OEROOT}/layers/meta-openembedded/meta-webserver \
     ${OEROOT}/layers/meta-openembedded/meta-oe \
     ${OEROOT}/layers/meta-openembedded/meta-python \
+    ${OEROOT}/layers/meta-rauc \
 "
 
 BBLAYERS_NON_REMOVABLE ?= " \
@@ -43,6 +44,9 @@ ADDONSLAYERS = ""
 # Qt6
 ADDONSLAYERS += "${@'${OEROOT}/layers/meta-qt6' if os.path.isfile('${OEROOT}/layers/meta-qt6/conf/layer.conf') else ''}"
 FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt/conf/layer.conf') else ''}"
+
+# ota
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-ota' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-ota/conf/layer.conf') else ''}"
 
 # specific to framework
 FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-openstlinux/conf/layer.conf') else ''}"
