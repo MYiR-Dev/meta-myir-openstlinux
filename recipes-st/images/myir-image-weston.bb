@@ -36,10 +36,11 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'packagegroup-optee-core', '', d)} \
     ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'packagegroup-optee-test', '', d)} \
+    ${@bb.utils.contains('COMBINED_FEATURES', 'optee', 'optee-examples', '', d)} \
     \
     ${@bb.utils.contains('COMBINED_FEATURES', 'tpm2', 'packagegroup-security-tpm2', '', d)} \
     \
-    udev-extraconf \
+    ${@bb.utils.contains('OTA_SUPPORT', '1', '', 'udev-extraconf', d)} \
     valgrind \
     iperf3 \
     serialcheck \
@@ -52,6 +53,8 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     gdb \
     myir-tool \
     autorun \
+    keyutils \
+    lvm2 \
     "
 
 # NOTE:
