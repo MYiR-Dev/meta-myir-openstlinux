@@ -55,6 +55,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     autorun \
     keyutils \
     lvm2 \
+    myir-test-function \
     "
 
 # NOTE:
