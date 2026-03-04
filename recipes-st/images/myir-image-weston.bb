@@ -61,3 +61,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 # NOTE:
 #   packagegroup-st-demo are installed on rootfs to populate the package
 #   database.
+remove_unwanted_includes() {
+    rm -rf ${IMAGE_ROOTFS}/usr/include/boost
+    echo "Removed unwanted include directories from rootfs."
+}
+
+ROOTFS_POSTPROCESS_COMMAND += "remove_unwanted_includes; "
