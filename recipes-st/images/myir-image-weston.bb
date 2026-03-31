@@ -56,6 +56,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
     keyutils \
     lvm2 \
     myir-test-function \
+    eeprom-pnsn \
     "
 
 # NOTE:
@@ -67,3 +68,13 @@ remove_unwanted_includes() {
 }
 
 ROOTFS_POSTPROCESS_COMMAND += "remove_unwanted_includes; "
+
+ROOTFS_POSTPROCESS_COMMAND:append = "install_lib; "
+install_lib() {
+
+  if [ -f ${IMAGE_ROOTFS}/usr/lib/libmyir_code.so.1 ]; then
+        cd ${IMAGE_ROOTFS}/usr/lib/
+        ln -sf libmyir_code.so.1 libmyir_code.so
+  fi
+
+}
