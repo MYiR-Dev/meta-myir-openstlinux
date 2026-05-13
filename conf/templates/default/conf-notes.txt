@@ -10,4 +10,5 @@ Available images for OpenSTLinux layers are:
           st-image-core         -   OpenSTLinux core image
 	  myir-image-core       -   OpenSTLinux nand image with basic LVGL support
           myir-image-burn-nand  -   Flash the core image to NAND using an SD card
+	  myir-image-burn-512n  -   Flash the core image to 512M NAND using an SD card
 
