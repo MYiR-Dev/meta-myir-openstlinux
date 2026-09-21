@@ -12,7 +12,9 @@ DEPENDS:append = " python3-cryptography-native "
 
 inherit python3native
 
-SRC_URI = "git://github.com/linaro-swg/optee_examples.git;branch=master;protocol=https"
+SRC_URI = "git://github.com/linaro-swg/optee_examples.git;branch=master;protocol=https \
+           file://0001-acipher-update-for-GP-1.1.1-object-info.patch \
+          "
 SRCREV = "f301ee9df2129c0db683e726c91dc2cefe4cdb65"
 
 PV = "3.19.0+git${SRCPV}"

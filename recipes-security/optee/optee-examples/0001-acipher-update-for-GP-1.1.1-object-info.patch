@@ -1,0 +1,55 @@
+From 8ee27d095ff338ec3103a51c4f50d9256f523d64 Mon Sep 17 00:00:00 2001
+From: MYIR Yocto Build <build@myirtech.com>
+Date: Tue, 8 Sep 2026 15:00:00 +0800
+Subject: [PATCH] acipher: update for GP 1.1.1 object info
+
+TEE_ObjectInfo from the current OP-TEE development kit follows GP 1.1.1
+and names the key size field objectSize. The asymmetric cipher API also
+uses size_t for buffer lengths. Update the old example accordingly.
+
+Upstream-Status: Backport
+Signed-off-by: MYIR Yocto Build <build@myirtech.com>
+---
+ acipher/ta/acipher_ta.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/acipher/ta/acipher_ta.c b/acipher/ta/acipher_ta.c
+index 42c57e9..b97e5de 100644
+--- a/acipher/ta/acipher_ta.c
++++ b/acipher/ta/acipher_ta.c
+@@ -56,9 +56,9 @@ static TEE_Result cmd_enc(struct acipher *state, uint32_t pt,
+ {
+ 	TEE_Result res;
+ 	const void *inbuf;
+-	uint32_t inbuf_len;
++	size_t inbuf_len;
+ 	void *outbuf;
+-	uint32_t outbuf_len;
++	size_t outbuf_len;
+ 	TEE_OperationHandle op;
+ 	TEE_ObjectInfo key_info;
+ 	const uint32_t alg = TEE_ALG_RSAES_PKCS1_V1_5;
+@@ -82,9 +82,9 @@ static TEE_Result cmd_enc(struct acipher *state, uint32_t pt,
+ 	outbuf_len = params[1].memref.size;
+ 
+ 	res = TEE_AllocateOperation(&op, alg, TEE_MODE_ENCRYPT,
+-				    key_info.keySize);
++				    key_info.objectSize);
+ 	if (res) {
+-		EMSG("TEE_AllocateOperation(TEE_MODE_ENCRYPT, %#" PRIx32 ", %" PRId32 "): %#" PRIx32, alg, key_info.keySize, res);
++		EMSG("TEE_AllocateOperation(TEE_MODE_ENCRYPT, %#" PRIx32 ", %" PRId32 "): %#" PRIx32, alg, key_info.objectSize, res);
+ 		return res;
+ 	}
+ 
+@@ -97,7 +97,7 @@ static TEE_Result cmd_enc(struct acipher *state, uint32_t pt,
+ 	res = TEE_AsymmetricEncrypt(op, NULL, 0, inbuf, inbuf_len, outbuf,
+ 				    &outbuf_len);
+ 	if (res) {
+-		EMSG("TEE_AsymmetricEncrypt(%" PRId32 ", %" PRId32 "): %#" PRIx32, inbuf_len, params[1].memref.size, res);
++		EMSG("TEE_AsymmetricEncrypt(%zu, %zu): %#" PRIx32, inbuf_len, params[1].memref.size, res);
+ 	}
+ 	params[1].memref.size = outbuf_len;
+ 
+-- 
+2.34.1
+
