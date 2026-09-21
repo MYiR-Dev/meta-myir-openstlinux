@@ -32,14 +32,27 @@ BBLAYERS_NON_REMOVABLE ?= " \
   "
 
 BSPLAYER ?= " \
-    ${@'${OEROOT}/layers/meta-st/meta-st-cannes2' if os.path.isfile('${OEROOT}/layers/meta-st/meta-st-cannes2/conf/layer.conf') else ''} \
-    ${@'${OEROOT}/layers/meta-st/meta-st-stm32mp' if os.path.isfile('${OEROOT}/layers/meta-st/meta-st-stm32mp/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-st/meta-myir-cannes2' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-cannes2/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp/conf/layer.conf') else ''} \
     "
 
 ADDONSLAYERS = ""
 
 # specific to framework
-FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-st/meta-st-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-st/meta-st-openstlinux/conf/layer.conf') else ''}"
+FRAMEWORKLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-openstlinux' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-openstlinux/conf/layer.conf') else ''}"
+
+# Qt6
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-qt6' if os.path.isfile('${OEROOT}/layers/meta-qt6/conf/layer.conf') else ''}"
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt/conf/layer.conf') else ''}"
+
+# AI
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-x-linux-ai' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-x-linux-ai/conf/layer.conf') else ''}"
+
+# switch layer
+SWITCHLAYER ?= "\
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm/conf/layer.conf') else ''} \
+    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch/conf/layer.conf') else ''} \
+"
 
 # add BSP layer
 BBLAYERS += " \
@@ -48,4 +61,5 @@ BBLAYERS += " \
     ${ADDONSLAYERS} \
     ${FRAMEWORKLAYERS} \
     ${@'${OPENEMBEDDED}' if os.path.isfile('${OEROOT}/layers/openembedded-core/meta/conf/layer.conf') else '${POKY}'} \
+    ${SWITCHLAYER} \
     "
