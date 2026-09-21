@@ -14,9 +14,8 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install() {
-    # start at startup
-    install -d ${D}${prefix}/local/weston-start-at-startup/
-    install -m 0755 ${WORKDIR}/start_up_demo_launcher.sh ${D}${prefix}/local/weston-start-at-startup/
+    install -d ${D}${prefix}/local/demo/
+    install -m 0755 ${WORKDIR}/start_up_demo_launcher.sh ${D}${prefix}/local/demo/
 }
 
-FILES:${PN} += "${prefix}/local/weston-start-at-startup/"
+FILES:${PN} += "${prefix}/local/demo/start_up_demo_launcher.sh"
