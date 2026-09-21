@@ -1,0 +1,38 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: MYIR Tech Limited <support@myirtech.com>
+Date: Thu, 10 Sep 2026 11:20:00 +0800
+Subject: [PATCH] libcamera: dcmipp: select a raw sensor format for ISP paths
+
+The DCMIPP main and auxiliary paths use the ISP and therefore require a
+raw Bayer input. Sensors such as OV5640 expose processed RGB and YUV media
+bus formats in addition to raw formats. Passing all of those formats to
+CameraSensor::getFormat() can select RGB565, which the DCMIPP ISP input pad
+rejects with EINVAL.
+
+Restrict automatic sensor format selection to raw formats. Explicit raw
+capture requests continue to select their requested media bus code.
+
+Upstream-Status: Inappropriate [MYIR board support]
+Signed-off-by: MYIR Tech Limited <support@myirtech.com>
+---
+ src/libcamera/pipeline/dcmipp/dcmipp.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/libcamera/pipeline/dcmipp/dcmipp.cpp b/src/libcamera/pipeline/dcmipp/dcmipp.cpp
+index 5e57fd80..24bbfd1d 100644
+--- a/src/libcamera/pipeline/dcmipp/dcmipp.cpp
++++ b/src/libcamera/pipeline/dcmipp/dcmipp.cpp
+@@ -382,6 +382,10 @@ std::vector<uint32_t> DcmippCameraConfiguration::extractUniqueMediaBusCodes(cons
+ {
+ 	std::set<uint32_t> uniqueCodes;
+ 	for (const auto &entry : inputFmt) {
++		if (PixelFormatInfo::info(entry.first).colourEncoding !=
++		    PixelFormatInfo::ColourEncodingRAW)
++			continue;
++
+ 		uniqueCodes.insert(entry.second);
+ 	}
+ 
+-- 
+2.43.0
+
