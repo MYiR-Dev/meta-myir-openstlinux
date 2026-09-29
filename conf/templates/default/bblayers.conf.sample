@@ -46,7 +46,7 @@ ADDONSLAYERS += "${@'${OEROOT}/layers/meta-qt6' if os.path.isfile('${OEROOT}/lay
 ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-x-linux-qt/conf/layer.conf') else ''}"
 
 # AI
-ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-st-x-linux-ai' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-st-x-linux-ai/conf/layer.conf') else ''}"
+ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-x-linux-ai' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-x-linux-ai/conf/layer.conf') else ''}"
 
 # ota
 ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-ota' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-ota/conf/layer.conf') else ''}"
