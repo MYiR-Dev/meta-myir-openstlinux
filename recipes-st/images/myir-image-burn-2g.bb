@@ -64,3 +64,16 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 # NOTE:
 #   packagegroup-st-demo are installed on rootfs to populate the package
 #   database.
+
+python __anonymous () {
+    if d.getVar('MACHINE') != 'myd-ld25x':
+        return
+
+    ddr_size = d.getVar('MYD_LD25X_DDR_SIZE')
+    required_ddr_size = d.getVar('MYD_LD25X_REQUIRED_DDR_SIZE')
+    if ddr_size not in ('1G', '2G'):
+        raise bb.parse.SkipRecipe('MYD_LD25X_DDR_SIZE must be either "1G" or "2G"')
+    if ddr_size != required_ddr_size:
+        raise bb.parse.SkipRecipe('%s requires MYD_LD25X_DDR_SIZE = "%s" (currently "%s")' %
+                                  (d.getVar('PN'), required_ddr_size, ddr_size))
+}
