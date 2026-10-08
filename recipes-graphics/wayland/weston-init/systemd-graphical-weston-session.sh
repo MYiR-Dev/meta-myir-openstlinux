@@ -2,10 +2,7 @@
 
 case $1 in
 start)
-   systemctl --user start pipewire
-   systemctl --user start pipewire-pulse
-   systemctl --user start wireplumber.service
-   /bin/sleep 5
+   systemctl --user --no-block start pipewire pipewire-pulse wireplumber.service
    if [ -e /usr/bin/psplash-drm-quit ]; then
         /usr/bin/psplash-drm-quit
    fi

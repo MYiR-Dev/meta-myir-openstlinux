@@ -6,12 +6,6 @@ if [ -z "$WESTON_USER" ]; then
     WESTON_USER=weston
 fi
 
-# for associated service: pulseaudio
-if [ ! -d "/var/run/pulse" ]; then
-    su  -c "mkdir -p /var/run/pulse"
-    su -c "chown -R weston.weston /var/run/pulse"
-fi
-
 ## Module support
 start_application_dir=/usr/share/weston-start-at-startup
 start_local_application_dir=/usr/local/weston-start-at-startup
@@ -36,4 +30,3 @@ if [ -f /home/weston/weston.log ]; then
 fi
 
 exec /usr/bin/weston $weston_args
-
