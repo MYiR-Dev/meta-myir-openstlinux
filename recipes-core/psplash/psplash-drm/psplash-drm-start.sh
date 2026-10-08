@@ -6,7 +6,8 @@ SPLASH_BG_LANDSCAPE_INDUS_480_800="/usr/share/splashscreen/ST30739_splash-800x48
 SPLASH_BG_LANDSCAPE_INDUS_800_480="/usr/share/splashscreen/ST30739_splash-800x480.png"
 SPLASH_BG_LANDSCAPE_INDUS_1280_720="/usr/share/splashscreen/ST30739_splash-1280x720.png"
 
-SPLASH_BG_LANDSCAPE_TSN_1024_600="/usr/share/splashscreen/ST30739_splash-1024x600.png"
+#SPLASH_BG_LANDSCAPE_TSN_1024_600="/usr/share/splashscreen/ST30739_splash-1024x600.png"
+SPLASH_BG_LANDSCAPE_TSN_1024_600="/usr/share/splashscreen/1023-599-myirlogo.png"
 SPLASH_BG_LANDSCAPE_TSN_1920_1080="/usr/share/splashscreen/ST30739_splash-1920x1080.png"
 SPLASH_BG_PORTRAIT_TSN_720_1280="/usr/share/splashscreen/ST30739_splash-720x1280.png"
 
@@ -63,10 +64,6 @@ if [ -d /proc/device-tree/ ]; then
 				DEFAULT_SPLASH=$SPLASH_BG_LANDSCAPE_TSN_1920_1080
 			else
 				DEFAULT_SPLASH=$SPLASH_BG_LANDSCAPE_TSN_1024_600
-				if [ -d /usr/local/splashscreen/animated ] ; then
-					DEFAULT_SPLASH=/usr/local/splashscreen/animated/splashscreen-animated_%05d.png
-					OPT="$OPT --framerate 20 -n 50  -l"
-				fi
 			fi
 		fi
 		if [ "$hdmi_status" = "connected" ]; then
