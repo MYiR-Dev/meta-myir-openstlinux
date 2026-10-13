@@ -59,7 +59,6 @@ ADDONSLAYERS += "${@'${OEROOT}/layers/meta-myir/meta-myir-x-linux-rt' if os.path
 
 # switch layer
 SWITCHLAYER ?= "\
-    ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-acm/conf/layer.conf') else ''} \
     ${@'${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch' if os.path.isfile('${OEROOT}/layers/meta-myir/meta-myir-stm32mp-tsn-swch/conf/layer.conf') else ''} \
 "
 
